@@ -1,0 +1,33 @@
+﻿@page "/counter"
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+<p role="status">Compute: @computeResult</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<button class="btn btn-primary" @onclick="ComputeData">Compute Data</button>
+
+
+@code {
+    private int currentCount = 0;
+    private string computeResult = "";
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+
+    private void ComputeData() {
+        computeResult = "Début";
+
+        for(int i=0;i<600; i++) {
+            Thread.Sleep(10);
+        }
+
+        computeResult = "Fin";
+
+    }
+}
