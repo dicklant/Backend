@@ -144,6 +144,72 @@
         }
       },
       {
+        "HashCode": 318115716,
+        "Kind": "Components.Component",
+        "Name": "Backend.Pages.CounterBase",
+        "AssemblyName": "Backend",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CounterBase"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Backend.Pages.CounterBase"
+        }
+      },
+      {
+        "HashCode": 938930587,
+        "Kind": "Components.Component",
+        "Name": "Backend.Pages.CounterBase",
+        "AssemblyName": "Backend",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Backend.Pages.CounterBase"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Backend.Pages.CounterBase",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -690391628,
+        "Kind": "Components.Component",
+        "Name": "Backend.Pages.CycleVieBase",
+        "AssemblyName": "Backend",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CycleVieBase"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Backend.Pages.CycleVieBase"
+        }
+      },
+      {
+        "HashCode": 1511650854,
+        "Kind": "Components.Component",
+        "Name": "Backend.Pages.CycleVieBase",
+        "AssemblyName": "Backend",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Backend.Pages.CycleVieBase"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Backend.Pages.CycleVieBase",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
         "HashCode": -1771302593,
         "Kind": "Components.Component",
         "Name": "Backend.App",
@@ -16678,6 +16744,11 @@
       "FilePath": "c:\\Users\\dickl\\Documents\\vscode\\blazor\\Backend\\_Imports.razor",
       "TargetPath": "_Imports.razor",
       "FileKind": "componentImport"
+    },
+    {
+      "FilePath": "c:\\Users\\dickl\\Documents\\vscode\\blazor\\Backend\\Pages\\CycleVie.razor",
+      "TargetPath": "Pages\\CycleVie.razor",
+      "FileKind": "component"
     },
     {
       "FilePath": "c:\\Users\\dickl\\Documents\\vscode\\blazor\\Backend\\Pages\\_Layout.cshtml",

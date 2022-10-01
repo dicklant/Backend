@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "WQgeBHiGaIrHyBw8Ml4mOWgCKbAcHIqlqcU7k8W3HODyvjagP4hp/Gr7HL0sBlMianWs5NVElHDIIloSpd/LQg==",
+=======
+  "dgSpecHash": "1jjlKfXlBh43a7tvRfrr1E5gfP8smYbM4Rgz/jtJdHxDMdyEadJ6y8tqP8/tVzQMWFuJKXaj5fdMIjVAjhhpXw==",
+>>>>>>> 831f66031a1c053b2c259f56a4134189435ae0eb
   "success": true,
   "projectFilePath": "C:\\Users\\dickl\\Documents\\vscode\\blazor\\Backend\\Backend.csproj",
   "expectedPackageFiles": [
