@@ -8,6 +8,7 @@
 <h1>Weather forecast</h1>
 
 <p>This component demonstrates fetching data from a service.</p>
+<p role="status">Weather call : @counterResult</p>
 
 @if (forecasts == null)
 {
@@ -40,9 +41,12 @@ else
 
 @code {
     private WeatherForecast[]? forecasts;
+    private int counterResult = 0; 
 
     protected override async Task OnInitializedAsync()
     {
+        counterResult = ForecastService.getCounter();
+        
         forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
     }
 }

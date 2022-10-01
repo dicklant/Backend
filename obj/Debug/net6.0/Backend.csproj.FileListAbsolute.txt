@@ -25,3 +25,5 @@ C:\Users\dickl\Documents\vscode\blazor\Backend\obj\Debug\net6.0\refint\Backend.d
 C:\Users\dickl\Documents\vscode\blazor\Backend\obj\Debug\net6.0\Backend.pdb
 C:\Users\dickl\Documents\vscode\blazor\Backend\obj\Debug\net6.0\Backend.genruntimeconfig.cache
 C:\Users\dickl\Documents\vscode\blazor\Backend\obj\Debug\net6.0\ref\Backend.dll
+C:\Users\dickl\Documents\vscode\blazor\Backend\bin\Debug\net6.0\Blazored.LocalStorage.dll
+C:\Users\dickl\Documents\vscode\blazor\Backend\obj\Debug\net6.0\Backend.csproj.CopyComplete

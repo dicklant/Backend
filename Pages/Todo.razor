@@ -1,0 +1,133 @@
+@page "/todo"
+
+@inject Blazored.LocalStorage.ILocalStorageService localStorage;
+
+<h1>Liste des tâches (@todos.Count(todo => !todo.IsDone))</h1>
+
+<div class="row">
+    <div class="col-4">
+
+        <ul class="list-group mb-5">
+            @foreach (var todo in todos)
+            {
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <input type="checkbox" class="form-check-input me-1" @bind="todo.IsDone" @onclick="SaveTodoAsync" />
+                    @todo.Title
+                    <button class="btn btn-sm btn-primary" @onclick="() => selectedTodo = todo">Modifier</button>
+                </li>
+            }
+
+        </ul>
+
+        <form class="row row-cols-lg-auto g-3 align-items-center">
+            <div class="col-12">
+                <input type="text" class="form-control form-control-sm mx-2" placeholder="Nouvelle tâche"
+                    @bind="newtodoTitle">
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-sm btn-primary" @onclick="addTodoAsync"
+                    @onclick:preventDefault>Ajouter une tâche</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-4">
+        @if (selectedTodo != null)
+        {
+            <label>Titre</label>
+            <input type="text" class="form-control form-control-sm mb-2" @bind="selectedTodo.Title" />
+            <button class="btn btn-sm btn-success" @onclick="SaveTodoAsync">Sauvegarder</button>
+            <button class="btn btn-sm btn-danger" @onclick="DeleteTodoAsync">Supprimer</button>
+        }
+    </div>
+</div>
+
+@code {
+    private List<TodoItem> todos = new();
+
+    private string newtodoTitle = "valeur par défaut";
+
+    private const string localStorageKey = "todoslist";
+
+    private TodoItem selectedTodo;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var data = await GetTodoAsync();
+
+        if (data != null)
+        {
+            todos = data;
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        var data = GetTodo();
+
+        if (data != null)
+        {
+            todos = data;
+        }
+    }
+
+    /*protected override async Task OnAfterRenderAsync(bool firstRendering)
+    {
+    if(!firstRendering) {
+    var data = await GetTodoAsync();
+
+    if (data != null)
+    {
+    todos = data;
+    }
+    }
+    }
+    */
+
+
+    private async Task addTodoAsync()
+    {
+        if (!string.IsNullOrWhiteSpace(newtodoTitle))
+        {
+            todos.Add(new TodoItem
+            {
+                Id = Guid.NewGuid().ToString(),
+                Title = newtodoTitle
+            });
+
+            await SaveTodoAsync();
+
+            newtodoTitle = string.Empty;
+        }
+    }
+
+    private async Task DeleteTodoAsync()
+    {
+        if (selectedTodo != null)
+        {
+            todos.Remove(selectedTodo);
+            await SaveTodoAsync();
+        }
+
+    }
+
+    private async Task SaveTodoAsync()
+    {
+        await localStorage.SetItemAsync(localStorageKey, todos);
+        if (selectedTodo != null)
+            selectedTodo = null;
+    }
+
+    private  List<TodoItem> GetTodo()
+    {
+       // Task<List<TodoItem>> t = localStorage.GetItemAsync<List<TodoItem>>(localStorageKey);
+       //     return await t;
+    }
+
+
+    private async Task<List<TodoItem>> GetTodoAsync()
+    {
+       return await localStorage.GetItemAsync<List<TodoItem>>(localStorageKey);
+    }
+
+}

@@ -1,33 +1,48 @@
 ﻿@page "/counter"
 
+@using Backend.Data
+
 <PageTitle>Counter</PageTitle>
 
 <h1>Counter</h1>
 
 <p role="status">Current count: @currentCount</p>
 <p role="status">Compute: @computeResult</p>
+<p role="status">Date: @dateResult</p>
+
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 <button class="btn btn-primary" @onclick="ComputeData">Compute Data</button>
+<button class="btn btn-primary" @onclick="ComputeNow">Get Now</button>
+
 
 
 @code {
     private int currentCount = 0;
     private string computeResult = "";
+    private string dateResult = "";
 
     private void IncrementCount()
     {
         currentCount++;
     }
 
-    private void ComputeData() {
+    private void ComputeData()
+    {
         computeResult = "Début";
 
-        for(int i=0;i<600; i++) {
+        for (int i = 0; i < 600; i++)
+        {
             Thread.Sleep(10);
         }
 
         computeResult = "Fin";
+    }
 
+    private void ComputeNow()
+    {
+        Processor p = new Processor();
+
+        dateResult = p.getDate();
     }
 }
